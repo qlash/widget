@@ -1,5 +1,8 @@
-const entry: NodeListOf<HTMLElement> = document.querySelectorAll('[data-medicover]');
+import Widget from './module/Widget'
+
+const entry: NodeListOf<HTMLElement> = document.querySelectorAll('[data-medicover]')
 
 entry.forEach(element => {
-  console.log(element.dataset.medicover);
-});
+  // console.log(element.dataset.medicover);
+  new Widget(element)
+})

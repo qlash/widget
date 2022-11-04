@@ -7,6 +7,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended'
   ],
   overrides: [
   ],
@@ -21,10 +22,12 @@ module.exports = {
   rules: {
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-inferrable-types': 'error',
-    'indent': ['error', 2],
+    '@typescript-eslint/explicit-member-accessibility': 'error',
+    indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
-    'quotes': ['error', 'single'],
-    'semi': ['error', 'always'],
-    'no-console': ['warn']
+    quotes: ['error', 'single'],
+    semi: ['error', 'never'],
+    'no-console': ['warn'],
+    'quote-props': ['error', 'as-needed']
   }
-};
+}

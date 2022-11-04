@@ -1,0 +1,27 @@
+query products($filter: ProductAttributeFilterInput!) {
+  products(filter: $filter, pageSize: 1) {
+    items {
+      name
+      image {
+        url
+      }
+      description {
+        html
+      }
+      price_range {
+        minimum_final_price {
+          currency
+          value
+        }
+        minimum_mediclub_price {
+          currency
+          value
+        }
+        minimum_price {
+          currency
+          value
+        }
+      }
+    }
+  }
+}
