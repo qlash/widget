@@ -60,7 +60,9 @@ const config = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js', '...']
-  }
+  },
+
+  devtool: isProduction ? false : 'source-map'
 }
 
 module.exports = () => {
