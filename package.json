@@ -1,6 +1,6 @@
 {
   "name": "medicover-widget",
-  "version": "0.1.1",
+  "version": "0.0.0",
   "description": "Medicover widget",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
