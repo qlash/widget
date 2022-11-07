@@ -21,9 +21,15 @@ export class Component implements IComponent {
     }
   }
 
+  private createElementWithClass<T extends keyof HTMLElementTagNameMap>(element: T, className?: string): HTMLElementTagNameMap[T] {
+    const item = document.createElement(element)
+    item.classList.add(`${this.cssClass}${className ? `__${className}` : ''}`)
+
+    return item
+  }
+
   private createContainer(data: IProductData) {
-    const element = document.createElement('section')
-    element.classList.add(this.cssClass)
+    const element = this.createElementWithClass('section')
 
     const hasImage = this.container.getOptionByKey('image')
     if (hasImage) {
@@ -37,11 +43,8 @@ export class Component implements IComponent {
   }
 
   private createImageElement(data: IProductData) {
-    const element = document.createElement('picture')
-    element.classList.add(`${this.cssClass}__picture`)
-
-    const img = document.createElement('img')
-    img.classList.add(`${this.cssClass}__image`)
+    const element = this.createElementWithClass('picture', 'picture')
+    const img = this.createElementWithClass('img', 'image')
     img.src = data.image.url
     img.alt = data.name
 
@@ -51,19 +54,15 @@ export class Component implements IComponent {
   }
   
   private createTitleElement(data: IProductData) {
-    const element = document.createElement('div')
-    element.classList.add(`${this.cssClass}__main`)
-    
-    const h2 = document.createElement('h2')
-    h2.classList.add(`${this.cssClass}__title`)
+    const element = this.createElementWithClass('div', 'main')
+    const h2 = this.createElementWithClass('h2', 'title')
     h2.innerText = data.name
 
     element.appendChild(h2)
 
     const hasDescription = this.container.getOptionByKey('description')
     if (hasDescription) {
-      const p = document.createElement('p')
-      p.classList.add(`${this.cssClass}__description`)
+      const p = this.createElementWithClass('p', 'description')
       p.innerHTML = data.description.html
 
       element.appendChild(p)
@@ -74,16 +73,14 @@ export class Component implements IComponent {
 
   private createCTA(data: IProductData) {
     const language = this.container.getOptionByKey('language')
-    const element = document.createElement('aside')
-    element.classList.add(`${this.cssClass}__cta`)
+    const element = this.createElementWithClass('aside', 'cta')
 
     const hasPrice = this.container.getOptionByKey('price')
     if (hasPrice) {
-      const p = document.createElement('p')
-      p.classList.add(`${this.cssClass}__price`)
+      const p = this.createElementWithClass('p', 'price')
 
       const price = new Intl.NumberFormat(
-        this.container.getOptionByKey('language'), { 
+        this.container.getOptionByKey('language'), {
           style: 'currency', currency: data.price_range.minimum_price.currency 
         }).format(data.price_range.minimum_price.value)
 
@@ -94,8 +91,7 @@ export class Component implements IComponent {
       element.appendChild(p)
     }
 
-    const button = document.createElement('button')
-    button.classList.add(`${this.cssClass}__open`)
+    const button = this.createElementWithClass('button', 'open')
     button.innerText = this.container.getOptionByKey('ctaText') ?? i18n[language].cta
     button.onclick = () => window.open(`http://medistore.com.pl/p/${data.url_key}/`, '_blank')
 
