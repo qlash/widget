@@ -4,6 +4,7 @@
   "description": "Medicover widget",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
+    "prepublishOnly": "npm version minor && yarn build",
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
     "build:prod": "rimraf dist && webpack --mode=production --node-env=production",
