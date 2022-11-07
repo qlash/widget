@@ -36,6 +36,7 @@ module.exports = {
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
     'no-console': ['warn'],
+    'no-empty': ['error', { allowEmptyCatch: true }],
     'quote-props': ['error', 'as-needed']
   }
 }

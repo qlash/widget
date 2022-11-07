@@ -4,5 +4,5 @@ export interface IContainer {
   getProductKey(): string
   getOptions(): IProductOptions
   getOptionByKey<T extends keyof IProductOptions>(key: T): IProductOptions[T]
-  render(html: string): void
+  render(html: HTMLElement): void
 }

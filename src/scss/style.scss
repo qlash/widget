@@ -1,0 +1,26 @@
+.medicover-product-widget {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid black;
+
+  &__picture {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  &__image {
+    max-width: 150px;
+  }
+
+  &__main {
+    flex-grow: 100;
+  }
+
+  &__cta {
+    flex-grow: 1;
+    align-self: flex-end;
+    text-align: right;
+  }
+}

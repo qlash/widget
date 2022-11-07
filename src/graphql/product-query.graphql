@@ -2,6 +2,7 @@ query products($filter: ProductAttributeFilterInput!) {
   products(filter: $filter, pageSize: 1) {
     items {
       name
+      url_key
       image {
         url
       }
@@ -9,11 +10,7 @@ query products($filter: ProductAttributeFilterInput!) {
         html
       }
       price_range {
-        minimum_final_price {
-          currency
-          value
-        }
-        minimum_mediclub_price {
+        maximum_price {
           currency
           value
         }
