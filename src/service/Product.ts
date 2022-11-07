@@ -1,29 +1,7 @@
 import productQuery from '../graphql/product-query.graphql'
-import { IContainer } from './Container'
-
-export interface IPrice {
-  currency: string;
-  value: number;
-}
-
-export interface IProductData {
-  name: string;
-  description: {
-    html: string;
-  }
-  image: {
-    url: string;
-  }
-  price_range: {
-    minimum_price: IPrice
-  }
-}
-
-export interface IProduct {
-  getQuery(): string
-  getVariables(): string
-  getData(): Promise<IProductData | undefined>
-}
+import { IContainer } from '../interfaces/IContainer'
+import { IProduct } from '../interfaces/IProduct'
+import { IProductData } from '../interfaces/IProductData'
 
 export class Product implements IProduct {
   private product: IProductData | undefined
@@ -48,19 +26,19 @@ export class Product implements IProduct {
   public async getData(): Promise<IProductData | undefined> {
     if (!this.loaded) {
       try {
-        const res = await fetch(`${process.env.API}/graphql?query=${this.getQuery()}&variables=${this.getVariables()}&operationName=products`, {
+        const response = await fetch(`${process.env.API}/graphql?query=${this.getQuery()}&variables=${this.getVariables()}&operationName=products`, {
           headers: {
             accept: '*/*',
             'content-type': 'application/json',
             store: `${this.container.getOptionByKey('store')}_${this.container.getOptionByKey('language')}`
           },
-          body: null,
+          body: undefined,
           method: 'GET',
           mode: 'cors',
           credentials: 'omit'
         })
 
-        const json = await res.json()
+        const json = await response.json()
         this.product = json.data.products.items[0]
       } catch {
         this.product = undefined

@@ -1,20 +1,8 @@
-export interface IContainer {
-  getProductKey(): string
-  getOptions(): ProductOptions
-  getOptionByKey<T extends keyof ProductOptions>(key: T): ProductOptions[T]
-  render(html: string): void
-}
-
-export type ProductOptions = {
-  store: string,
-  language: 'pl'|'en',
-  description: boolean,
-  image: boolean,
-  price: boolean
-}
+import { IContainer } from '../interfaces/IContainer'
+import { IProductOptions } from '../interfaces/IProductOptions'
 
 export class Container implements IContainer {
-  private options: ProductOptions = {
+  private options: IProductOptions = {
     store: 'default',
     language: 'pl',
     description: true,
@@ -22,12 +10,12 @@ export class Container implements IContainer {
     price: true
   }
 
-  public constructor(private el: HTMLElement) {
-    this.setOptions(this.el.dataset)
+  public constructor(private element: HTMLElement) {
+    this.setOptions(this.element.dataset)
   }
 
   public getProductKey() {
-    const { medicover } = this.el.dataset
+    const { medicover } = this.element.dataset
     
     if (!medicover) {
       throw new Error('Product key not set')
@@ -40,12 +28,12 @@ export class Container implements IContainer {
     return this.options
   }
 
-  public getOptionByKey<T extends keyof ProductOptions>(key: T)  {
+  public getOptionByKey<T extends keyof IProductOptions>(key: T)  {
     return this.options[key]
   }
 
   public render(html: string) {
-    this.el.innerHTML = html
+    this.element.innerHTML = html
   }
 
   private setOptions(dataset: DOMStringMap) {

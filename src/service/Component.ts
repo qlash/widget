@@ -1,9 +1,6 @@
-import { IContainer } from './Container'
-import { IProduct } from './Product'
-
-export interface IComponent {
-  render(): void
-}
+import { IComponent } from '../interfaces/IComponent'
+import { IContainer } from '../interfaces/IContainer'
+import { IProduct } from '../interfaces/IProduct'
 
 export class Component implements IComponent {
   public constructor(

@@ -23,6 +23,14 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-inferrable-types': 'error',
     '@typescript-eslint/explicit-member-accessibility': 'error',
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        selector: 'interface',
+        format: ['PascalCase'],
+        prefix: ['I']
+      }
+    ],
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
