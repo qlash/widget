@@ -7,7 +7,8 @@ export class Container implements IContainer {
     language: 'pl',
     description: true,
     image: true,
-    price: true
+    price: true,
+    ctaText: undefined
   }
 
   public constructor(private element: HTMLElement) {
@@ -43,6 +44,7 @@ export class Container implements IContainer {
       image: this.getBoolFromStr(dataset.image, this.options.image),
       description: this.getBoolFromStr(dataset.description, this.options.description),
       price: this.getBoolFromStr(dataset.price, this.options.price),
+      ctaText: dataset.cta
     }
   }
 

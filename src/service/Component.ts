@@ -2,6 +2,7 @@ import { IComponent } from '../interfaces/IComponent'
 import { IContainer } from '../interfaces/IContainer'
 import { IProduct } from '../interfaces/IProduct'
 import { IProductData } from '../interfaces/IProductData'
+import i18n from '../lang/i18n'
 import '../scss/style.scss'
 
 export class Component implements IComponent {
@@ -52,6 +53,7 @@ export class Component implements IComponent {
   private createTitleElement(data: IProductData) {
     const element = document.createElement('div')
     element.classList.add(`${this.cssClass}__main`)
+    
     const h2 = document.createElement('h2')
     h2.classList.add(`${this.cssClass}__title`)
     h2.innerText = data.name
@@ -71,6 +73,7 @@ export class Component implements IComponent {
   }
 
   private createCTA(data: IProductData) {
+    const language = this.container.getOptionByKey('language')
     const element = document.createElement('aside')
     element.classList.add(`${this.cssClass}__cta`)
 
@@ -86,14 +89,14 @@ export class Component implements IComponent {
 
       const priceRange = data.price_range.minimum_price.value === data.price_range.maximum_price.value
 
-      p.innerHTML = `${priceRange ? 'od' : ''} ${price}`
+      p.innerHTML = `${priceRange ? i18n[language].from : ''} ${price}`
 
       element.appendChild(p)
     }
 
     const button = document.createElement('button')
     button.classList.add(`${this.cssClass}__open`)
-    button.innerText = 'Kup teraz'
+    button.innerText = this.container.getOptionByKey('ctaText') ?? i18n[language].cta
     button.onclick = () => window.open(`http://medistore.com.pl/p/${data.url_key}/`, '_blank')
 
     element.appendChild(button)

@@ -3,5 +3,6 @@ export interface IProductOptions {
   language: 'pl'|'en',
   description: boolean,
   image: boolean,
-  price: boolean
+  price: boolean,
+  ctaText: string|undefined
 }
