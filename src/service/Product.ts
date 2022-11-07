@@ -26,11 +26,17 @@ export class Product implements IProduct {
   public async getData(): Promise<IProductData | undefined> {
     if (!this.loaded) {
       try {
+        let store = this.container.getOptionByKey('store')
+        const language = this.container.getOptionByKey('language')
+        if (language !== 'en') {
+          store += `_${language}`
+        }
+
         const response = await fetch(`${process.env.API}/graphql?query=${this.getQuery()}&variables=${this.getVariables()}&operationName=products`, {
           headers: {
             accept: '*/*',
             'content-type': 'application/json',
-            store: `${this.container.getOptionByKey('store')}_${this.container.getOptionByKey('language')}`
+            store
           },
           body: undefined,
           method: 'GET',

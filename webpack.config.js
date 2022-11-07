@@ -11,6 +11,7 @@ const stylesHandler = 'style-loader'
 const config = {
   entry: './src/index.ts',
   output: {
+    filename: 'medicover-widget.js',
     path: path.resolve(__dirname, 'dist')
   },
   devServer: {
