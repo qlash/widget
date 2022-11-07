@@ -16,12 +16,12 @@ Widget ma zaimplementowane podstawowe style css (glownie ustawienia flex).
 
 Dostepne opcje:
 
-|data-*|type|opis|
-|---|---|---|
-|medicover|string|wartość wymagana, url-key produktu|
-|store|string|wybrany storecode np. default/synevo|
-|language|pl/en|jezyk widgetu|
-|cta|string|tekst, ktory pojawi się na przycisku CTA, domyślnie 'Kup teraz'|
-|image|bool|pokaz/ukryj zdjęcie|
-|description|bool|pokaz/ukryj opis|
-|price|bool|pokaz/ukryj cene|
+|data-*|type|domyslnie|opis|
+|---|---|---|---|
+|medicover|string|*wartość wymagana|url-key produktu|
+|store|string|default|wybrany storecode np. default/synevo|
+|language|pl/en|pl|jezyk widgetu|
+|cta|string|'Kup teraz'|tekst, ktory pojawi się na przycisku CTA|
+|image|bool|true|pokaz/ukryj zdjęcie|
+|description|bool|true|pokaz/ukryj opis|
+|price|bool|true|pokaz/ukryj cene|
