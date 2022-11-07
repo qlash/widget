@@ -1,12 +1,12 @@
 {
   "name": "medicover-widget",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Medicover widget",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production --node-env=production",
+    "build:prod": "rimraf dist && webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
     "serve": "webpack serve"
   },
@@ -24,6 +24,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "html-webpack-plugin": "^5.5.0",
     "raw-loader": "^4.0.2",
+    "rimraf": "^3.0.2",
     "sass": "^1.56.0",
     "sass-loader": "^13.1.0",
     "style-loader": "^3.3.1",

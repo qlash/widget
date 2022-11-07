@@ -1,0 +1,6 @@
+*
+!dist/*
+!.npmignore
+!package.json
+!yarn.lock
+!README.md
