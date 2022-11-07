@@ -1,15 +1,27 @@
-# 🚀 Welcome to your new awesome project!
+# 🚀 Medicover widget
 
-This project has been created using **webpack-cli**, you can now run
-
-```
-npm run build
-```
-
-or
+Użycie na stronie html, importujemy plik js:
 
 ```
-yarn build
+<script src="..." defer>
 ```
 
-to bundle your application
+i dodajemy tag:
+
+```
+<div data-medicover="{id}" data-{options}></div>
+```
+
+Widget ma zaimplementowane podstawowe style css (glownie ustawienia flex).
+
+Dostepne opcje:
+
+|data-*|type|opis|
+|---|---|---|
+|medicover|string|wartość wymagana, url-key produktu|
+|store|string|wybrany storecode np. default/synevo|
+|language|pl/en|jezyk widgetu|
+|cta|string|tekst, ktory pojawi się na przycisku CTA, domyślnie 'Kup teraz'|
+|image|bool|pokaz/ukryj zdjęcie|
+|description|bool|pokaz/ukryj opis|
+|price|bool|pokaz/ukryj cene|
