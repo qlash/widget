@@ -5,7 +5,7 @@
 1. Aby uruchomić widget na stronie importujemy plik js:
 
 ```
-<script src="..." defer>
+<script src="https://unpkg.com/medistore-widget/dist/medicover-widget.js" defer>
 ```
 
 2. w miejscu, gdzie ma pojawić się widget dodajemy element:
@@ -62,3 +62,6 @@ Istnieje możliwość uruchomienia ładowania widgetu na elementach html załado
 window.medistoreWidget.render()
 ```
 
+## Playground
+
+[Medistore demo page](https://playcode.io/1005933)
