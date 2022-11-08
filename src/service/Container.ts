@@ -13,6 +13,7 @@ export class Container implements IContainer {
 
   public constructor(private element: HTMLElement) {
     this.setOptions(this.element.dataset)
+    this.element.dataset.rendered = 'true'
   }
 
   public getProductKey() {

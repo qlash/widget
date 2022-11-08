@@ -1,13 +1,12 @@
 {
-  "name": "medicover-widget",
+  "name": "medistore-widget",
   "version": "0.0.0",
-  "description": "Medicover widget",
+  "description": "Medistore widget",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "prepublishOnly": "npm version minor && yarn build:prod",
+    "prepublishOnly": "yarn build:prod",
     "build:dev": "webpack --mode=development",
     "build:prod": "rimraf dist && webpack --mode=production --node-env=production",
-    "watch": "webpack --watch",
     "serve": "webpack serve"
   },
   "author": "Marcin Skibinski",

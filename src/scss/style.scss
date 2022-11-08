@@ -14,6 +14,10 @@
     max-width: 150px;
   }
 
+  &__title {
+    margin-top: 0;
+  }
+
   &__main {
     flex-grow: 100;
   }
