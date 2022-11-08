@@ -1,6 +1,6 @@
 {
   "name": "medistore-widget",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Medistore widget",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
