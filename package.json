@@ -11,6 +11,10 @@
   },
   "author": "Marcin Skibinski",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/medistore-widget/product-widget"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@webpack-cli/generators": "^2.5.0",
