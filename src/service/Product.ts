@@ -9,20 +9,6 @@ export class Product implements IProduct {
 
   public constructor(private container: IContainer) {}
 
-  public getQuery(): string {
-    return productQuery.replace(/\s+/g, ' ').trim()
-  }
-
-  public getVariables(): string {
-    return JSON.stringify({
-      filter: {
-        url_key: {
-          eq: this.container.getProductKey()
-        }
-      }
-    })
-  }
-
   public async getData(): Promise<IProductData | undefined> {
     if (!this.loaded) {
       try {
@@ -54,5 +40,19 @@ export class Product implements IProduct {
     }
 
     return this.product
+  }
+
+  private getQuery() {
+    return productQuery.replace(/\s+/g, ' ').trim()
+  }
+
+  private getVariables() {
+    return JSON.stringify({
+      filter: {
+        url_key: {
+          eq: this.container.getProductKey()
+        }
+      }
+    })
   }
 }
