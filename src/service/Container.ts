@@ -9,8 +9,6 @@ export class Container implements IContainer {
     description: true,
     image: true,
     price: true,
-    ctaText: undefined,
-    utmSource: undefined,
   }
 
   public constructor(private element: HTMLElement) {
