@@ -10,8 +10,7 @@
     "test": "vitest --globals --environment happy-dom",
     "test:coverage": "vitest run --globals --environment happy-dom --coverage",
     "lint": "eslint --ignore-path .gitignore . --fix",
-    "serve": "webpack serve",
-    "prepare": "husky install"
+    "serve": "webpack serve"
   },
   "author": "Marcin Skibinski",
   "license": "ISC",
