@@ -60,6 +60,7 @@ module.exports = {
     'space-before-function-paren': ['error', 'never'],
     'space-in-parens': ['error', 'never'],
     'space-infix-ops': 'error',
+    'template-curly-spacing': 'error',
     indent: ['error', 2],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],

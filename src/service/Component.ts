@@ -115,10 +115,10 @@ export class Component implements IComponent {
     const utmSource = this.container.getOptionByKey('utmSource')
 
     if (utmSource) {
-      queryArray.push(`utm_source=${ utmSource}`)
+      queryArray.push(`utm_source=${utmSource}`)
     }
 
-    const query = queryArray.length ? `?${ queryArray.join('&')}` : ''
+    const query = queryArray.length ? `?${queryArray.join('&')}` : ''
 
     return `http://medistore.com.pl/p/${urlKey}/${query}`
   }
