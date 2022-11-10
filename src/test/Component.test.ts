@@ -44,6 +44,22 @@ it('should not render elements in widget', async() => {
   expect(node).not.toContain('__price')
 })
 
+it('should change CTA inner text', async() => {
+  const component = new Component(
+    new ProductMock(),
+    new ContainerMock({ ctaText: 'Testowy tekst' }) as unknown as IContainer,
+  )
+
+  await component.render()
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore:next-line
+  const node = containerRenderMock.calls[0][0].toString()
+
+  expect(node).not.toContain('Kup teraz')
+  expect(node).toContain('Testowy tekst')
+})
+
 it('shoud add utm_source to url', async() => {
   const component = new Component(
     new ProductMock(),
