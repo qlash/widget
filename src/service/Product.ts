@@ -15,18 +15,11 @@ export class Product implements IProduct {
       this.loaded = true
 
       try {
-        let store = this.container.getOptionByKey('store')
-        const language = this.container.getOptionByKey('language')
-
-        if (language !== 'en') {
-          store += `_${language}`
-        }
-
         const response = await fetch(`${process.env.API}/graphql?query=${this.getQuery()}&variables=${this.getVariables()}&operationName=products`, {
           headers: {
             accept: '*/*',
             'content-type': 'application/json',
-            store,
+            store: this.getStoreCode(),
           },
           body: undefined,
           method: 'GET',
@@ -48,6 +41,17 @@ export class Product implements IProduct {
     }
 
     return this.product
+  }
+
+  private getStoreCode() {
+    let store = this.container.getOptionByKey('store')
+    const language = this.container.getOptionByKey('language')
+
+    if (language !== 'en') {
+      store += `_${language}`
+    }
+
+    return store
   }
 
   private getQuery() {

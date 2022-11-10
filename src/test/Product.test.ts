@@ -45,16 +45,14 @@ it('should fetch with graphql and url_key', () => {
   expect(fetch).toBeCalledWith(expect.stringContaining(testUrlKey), expect.anything())
 })
 
-it('should fetch with correct store_name', () => {
+it('should return correct store_name', () => {
   const product = new Product(container)
 
-  product.getData()
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore:next-line
+  const storeCode = product.getStoreCode()
 
-  expect(fetch).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({
-    headers: expect.objectContaining({
-      store: 'default_pl',
-    }),
-  }))
+  expect(storeCode).toBe('default_pl')
 })
 
 it('should fetch for english store_code without language in param', () => {
@@ -67,13 +65,11 @@ it('should fetch for english store_code without language in param', () => {
   const customContainer = new Container(customElement)
   const customProduct = new Product(customContainer)
 
-  customProduct.getData()
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore:next-line
+  const storeCode = customProduct.getStoreCode()
 
-  expect(fetch).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({
-    headers: expect.objectContaining({
-      store: 'synevo',
-    }),
-  }))
+  expect(storeCode).toBe('synevo')
 })
 
 it('should fetch data only once', () => {
