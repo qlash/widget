@@ -31,6 +31,7 @@ it('should set default options', () => {
     description: true,
     price: true,
     ctaText: undefined,
+    utmSource: undefined,
   })
 })
 

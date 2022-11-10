@@ -9,4 +9,5 @@ export interface IProductOptions {
   image: boolean
   price: boolean
   ctaText: string|undefined
+  utmSource: string|undefined
 }

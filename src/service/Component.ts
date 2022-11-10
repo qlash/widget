@@ -103,10 +103,23 @@ export class Component implements IComponent {
     const button = this.createElementWithClass('button', 'open')
 
     button.innerText = this.container.getOptionByKey('ctaText') ?? i18n[language].cta
-    button.onclick = () => window.open(`http://medistore.com.pl/p/${data.url_key}/`, '_blank')
+    button.onclick = () => window.open(this.getProductUrl(data.url_key), '_blank')
 
     element.appendChild(button)
 
     return element
+  }
+
+  private getProductUrl(urlKey: string) {
+    const queryArray: string[] = []
+    const utmSource = this.container.getOptionByKey('utmSource')
+
+    if (utmSource) {
+      queryArray.push(`utm_source=${ utmSource}`)
+    }
+
+    const query = queryArray.length ? `?${ queryArray.join('&')}` : ''
+
+    return `http://1medistore.com.pl/p/${urlKey}/${query}`
   }
 }

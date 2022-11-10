@@ -34,15 +34,16 @@ Istnieje mozliwosc konfiguracji kazdego widetu na stronie:
 
 Dostepne opcje:
 
-|data-{opcja}|type|domyslna wartosc|opis|
+|data-{opcja}|type|domyślna wartość|opis|
 |---|---|---|---|
 |data-medicover|string|*wartość wymagana*|url-key produktu|
 |data-store|string|"default"(1)|wybrany storecode np. default/synevo|
-|data-language|pl/en|"pl"|jezyk widgetu|
-|data-cta|string|"Kup teraz"|tekst, ktory pojawi się na przycisku CTA|
+|data-language|pl/en|"pl"|język widgetu|
+|data-cta|string|"Kup teraz"|tekst, który pojawi się na przycisku CTA|
 |data-image|bool|true|pokaz/ukryj zdjęcie|
 |data-description|bool|true|pokaz/ukryj opis|
-|data-price|bool|true|pokaz/ukryj cene|
+|data-price|bool|true|pokaz/ukryj cenę|
+|data-utm-source|string|*wartość opcjonalna*|dodaje na koncu url ?utm_source={{string}}
 
 (1) "default" odnosi się do medistore.com.pl
 
@@ -54,7 +55,7 @@ np. żeby wyświetlić widget dla produktu internista bez miniaturki:
 
 ## Renderowanie
 
-Po załadowaniu pliku js każdy poprawnie skonfigurowany element html z url-key w data-medicover uzupełni danymi produktu.
+Po załadowaniu pliku js każdy poprawnie skonfigurowany element html z url-key w data-medicover uzupełni się danymi produktu.
 
 Istnieje możliwość uruchomienia ładowania widgetu na elementach html załadowanych później (np lazy-load), służy do tego metoda:
 

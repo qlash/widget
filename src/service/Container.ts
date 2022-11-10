@@ -10,6 +10,7 @@ export class Container implements IContainer {
     image: true,
     price: true,
     ctaText: undefined,
+    utmSource: undefined,
   }
 
   public constructor(private element: HTMLElement) {
@@ -52,6 +53,7 @@ export class Container implements IContainer {
       description: this.getBoolFromStr(dataset.description, this.options.description),
       price: this.getBoolFromStr(dataset.price, this.options.price),
       ctaText: dataset.cta,
+      utmSource: dataset.utmSource,
     }
   }
 
