@@ -20,10 +20,11 @@
 
   &__main {
     flex-grow: 100;
+    max-width: 600px;
   }
 
   &__cta {
-    flex-grow: 1;
+    flex-grow: 50;
     align-self: flex-end;
     text-align: right;
   }

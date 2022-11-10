@@ -1,3 +1,4 @@
+import { renderStatus } from '../enum/renderStatus'
 import { IContainer } from '../interfaces/IContainer'
 import { IProductOptions } from '../interfaces/IProductOptions'
 
@@ -8,17 +9,17 @@ export class Container implements IContainer {
     description: true,
     image: true,
     price: true,
-    ctaText: undefined
+    ctaText: undefined,
   }
 
   public constructor(private element: HTMLElement) {
+    this.setRenderStatus(renderStatus.PENDING)
     this.setOptions(this.element.dataset)
-    this.element.dataset.rendered = 'true'
   }
 
   public getProductKey() {
     const { medicover } = this.element.dataset
-    
+
     if (!medicover) {
       throw new Error('Product key not set')
     }
@@ -30,12 +31,17 @@ export class Container implements IContainer {
     return this.options
   }
 
-  public getOptionByKey<T extends keyof IProductOptions>(key: T)  {
+  public getOptionByKey<T extends keyof IProductOptions>(key: T) {
     return this.options[key]
+  }
+
+  public setRenderStatus(status: string) {
+    this.element.dataset.rendered = status
   }
 
   public render(html: HTMLElement) {
     this.element.appendChild(html)
+    this.setRenderStatus(renderStatus.DONE)
   }
 
   private setOptions(dataset: DOMStringMap) {
@@ -45,12 +51,12 @@ export class Container implements IContainer {
       image: this.getBoolFromStr(dataset.image, this.options.image),
       description: this.getBoolFromStr(dataset.description, this.options.description),
       price: this.getBoolFromStr(dataset.price, this.options.price),
-      ctaText: dataset.cta
+      ctaText: dataset.cta,
     }
   }
 
   private getLanguage(str: string, def: IProductOptions['language']): 'pl'|'en' {
-    return ['pl', 'en'].includes(str) ? str as 'pl'|'en': def
+    return ['pl', 'en'].includes(str) ? str as 'pl'|'en' : def
   }
 
   private getBoolFromStr(str: string | undefined, def: boolean): boolean {

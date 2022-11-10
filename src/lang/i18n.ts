@@ -1,10 +1,10 @@
 export default {
   pl: {
     from: 'od',
-    cta: 'Kup teraz'
+    cta: 'Kup teraz',
   },
   en: {
     from: 'from',
-    cta: 'Buy now'
-  }
+    cta: 'Buy now',
+  },
 }

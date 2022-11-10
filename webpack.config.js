@@ -12,39 +12,39 @@ const config = {
   entry: './src/index.ts',
   output: {
     filename: 'medicover-widget.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
     open: true,
-    host: 'localhost'
+    host: 'localhost',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      template: 'index.html',
     }),
 
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
-    new Dotenv()
+    new Dotenv(),
   ],
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/i,
         loader: 'ts-loader',
-        exclude: ['/node_modules/']
+        exclude: ['/node_modules/'],
       },
       {
         test: /\.css$/i,
-        use: [stylesHandler, 'css-loader']
+        use: [stylesHandler, 'css-loader'],
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [stylesHandler, 'css-loader', 'sass-loader']
+        use: [stylesHandler, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: 'asset'
+        type: 'asset',
       },
 
       // Add your rules for custom modules here
@@ -55,15 +55,15 @@ const config = {
         loader: 'raw-loader',
         options: {
           /* ... */
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '...']
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
   },
 
-  devtool: isProduction ? false : 'source-map'
+  devtool: isProduction ? false : 'source-map',
 }
 
 module.exports = () => {

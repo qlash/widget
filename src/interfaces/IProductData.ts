@@ -1,13 +1,13 @@
 import { IPrice } from './IPrice'
 
 export interface IProductData {
-  name: string;
-  url_key: string;
+  name: string
+  url_key: string
   description: {
-    html: string;
+    html: string
   }
   image: {
-    url: string;
+    url: string
   }
   price_range: {
     maximum_price: IPrice

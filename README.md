@@ -1,4 +1,4 @@
-# 🚀 Medicover widget
+# 🚀 Medistore product widget
 
 ## Użycie na stronie html
 
