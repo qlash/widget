@@ -120,6 +120,6 @@ export class Component implements IComponent {
 
     const query = queryArray.length ? `?${ queryArray.join('&')}` : ''
 
-    return `http://1medistore.com.pl/p/${urlKey}/${query}`
+    return `http://medistore.com.pl/p/${urlKey}/${query}`
   }
 }
