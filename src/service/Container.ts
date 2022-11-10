@@ -1,6 +1,6 @@
 import { renderStatus } from '../enum/renderStatus'
 import { IContainer } from '../interfaces/IContainer'
-import { IProductOptions } from '../interfaces/IProductOptions'
+import { I18n, IProductOptions } from '../interfaces/IProductOptions'
 
 export class Container implements IContainer {
   private options: IProductOptions = {
@@ -55,8 +55,8 @@ export class Container implements IContainer {
     }
   }
 
-  private getLanguage(str: string, def: IProductOptions['language']): 'pl'|'en' {
-    return ['pl', 'en'].includes(str) ? str as 'pl'|'en' : def
+  private getLanguage(str: string, def: I18n): I18n {
+    return ['pl', 'en'].includes(str) ? str as I18n : def
   }
 
   private getBoolFromStr(str: string | undefined, def: boolean): boolean {
