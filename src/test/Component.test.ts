@@ -85,3 +85,17 @@ it('shoud add utm_source to url', async() => {
 
   expect(url).toContain('utm_source=utm-test')
 })
+
+it('shoud add utm_campaing and utm_medium to url', async() => {
+  const component = new Component(
+    new ProductMock(),
+    new ContainerMock({ utmCampaign: 'utm-kampania', utmMedium: 'utm-media' }) as unknown as IContainer,
+  )
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore:next-line
+  const url = component.getProductUrl('test')
+
+  expect(url).toContain('utm_medium=utm-media')
+  expect(url).toContain('utm_campaign=utm-kampania')
+})

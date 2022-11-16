@@ -12,4 +12,6 @@ export interface IProductOptions {
   price: boolean
   ctaText?: string
   utmSource?: string
+  utmMedium?: string
+  utmCampaign?: string
 }

@@ -54,6 +54,8 @@ export class Container implements IContainer {
       price: this.getBoolFromStr(dataset.price, this.options.price),
       ctaText: dataset.cta,
       utmSource: dataset.utmSource,
+      utmCampaign: dataset.utmCampaign,
+      utmMedium: dataset.utmMedium,
     }
   }
 

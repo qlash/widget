@@ -114,9 +114,19 @@ export class Component implements IComponent {
   private getProductUrl(urlKey: string) {
     const queryArray: string[] = []
     const utmSource = this.container.getOptionByKey('utmSource')
+    const utmCampaign = this.container.getOptionByKey('utmCampaign')
+    const utmMedium = this.container.getOptionByKey('utmMedium')
 
     if (utmSource) {
       queryArray.push(`utm_source=${utmSource}`)
+    }
+
+    if (utmCampaign) {
+      queryArray.push(`utm_campaign=${utmCampaign}`)
+    }
+
+    if (utmMedium) {
+      queryArray.push(`utm_medium=${utmMedium}`)
     }
 
     const query = queryArray.length ? `?${queryArray.join('&')}` : ''
