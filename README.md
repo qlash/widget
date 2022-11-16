@@ -43,7 +43,9 @@ Dostepne opcje:
 |data-image|bool|true|pokaz/ukryj zdjęcie|
 |data-description|bool|true|pokaz/ukryj opis|
 |data-price|bool|true|pokaz/ukryj cenę|
-|data-utm-source|string|*wartość opcjonalna*|dodaje na koncu url ?utm_source={{string}}
+|data-utm-source|string|*wartość opcjonalna*|dodaje do url query ?utm_source={{string}}
+|data-utm-medium|string|*wartość opcjonalna*|dodaje do url query ?utm_medium={{string}}
+|data-utm-campaign|string|*wartość opcjonalna*|dodaje do url query ?utm_campaign={{string}}
 
 (1) "default" odnosi się do medistore.com.pl
 
