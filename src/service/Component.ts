@@ -1,3 +1,4 @@
+import { StoreCode } from '../enum/StoreCode'
 import { IComponent } from '../interfaces/IComponent'
 import { IContainer } from '../interfaces/IContainer'
 import { IProduct } from '../interfaces/IProduct'
@@ -120,6 +121,9 @@ export class Component implements IComponent {
 
     const query = queryArray.length ? `?${queryArray.join('&')}` : ''
 
-    return `http://medistore.com.pl/p/${urlKey}/${query}`
+    const storeCodeName = this.container.getOptionByKey('store')
+    const domain = StoreCode[storeCodeName]
+
+    return `${domain}${urlKey}/${query}`
   }
 }

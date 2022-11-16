@@ -1,6 +1,8 @@
 import { renderStatus } from '../enum/renderStatus'
+import { StoreCode } from '../enum/StoreCode'
 import { IContainer } from '../interfaces/IContainer'
-import { I18n, IProductOptions } from '../interfaces/IProductOptions'
+import { I18n, IProductOptions, StoreCodeNames } from '../interfaces/IProductOptions'
+import i18n from '../lang/i18n'
 
 export class Container implements IContainer {
   private options: IProductOptions = {
@@ -45,7 +47,7 @@ export class Container implements IContainer {
 
   private setOptions(dataset: DOMStringMap) {
     this.options = {
-      store: dataset.store ?? this.options.store,
+      store: this.getStore(dataset.store ?? '', this.options.store),
       language: this.getLanguage(dataset.language ?? '', this.options.language),
       image: this.getBoolFromStr(dataset.image, this.options.image),
       description: this.getBoolFromStr(dataset.description, this.options.description),
@@ -55,8 +57,12 @@ export class Container implements IContainer {
     }
   }
 
+  private getStore(str: string, def: StoreCodeNames) {
+    return Object.keys(StoreCode).includes(str) ? str as StoreCodeNames : def
+  }
+
   private getLanguage(str: string, def: I18n): I18n {
-    return ['pl', 'en'].includes(str) ? str as I18n : def
+    return Object.keys(i18n).includes(str) ? str as I18n : def
   }
 
   private getBoolFromStr(str: string | undefined, def: boolean): boolean {

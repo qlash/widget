@@ -60,6 +60,19 @@ it('should change CTA inner text', async() => {
   expect(node).toContain('Testowy tekst')
 })
 
+it('should return correct url for store code', () => {
+  const component = new Component(
+    new ProductMock(),
+    new ContainerMock({ store: 'synevo' }) as unknown as IContainer,
+  )
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore:next-line
+  const url = component.getProductUrl('test')
+
+  expect(url).toContain('synevo.pl')
+})
+
 it('shoud add utm_source to url', async() => {
   const component = new Component(
     new ProductMock(),
