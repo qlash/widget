@@ -94,7 +94,7 @@ export class Component implements IComponent {
           currency: minimum_price.currency,
         }).format(minimum_price.value)
 
-      const priceRange = minimum_price.value === maximum_price.value
+      const priceRange = minimum_price.value !== maximum_price.value
 
       p.innerHTML = `${priceRange ? i18n[language].from : ''} ${price}`
 

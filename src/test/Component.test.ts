@@ -99,3 +99,19 @@ it('shoud add utm_campaing and utm_medium to url', async() => {
   expect(url).toContain('utm_medium=utm-media')
   expect(url).toContain('utm_campaign=utm-kampania')
 })
+
+it('should add "from" price if min and max price differ', async() => {
+  const component = new Component(
+    new ProductMock(),
+    new ContainerMock() as unknown as IContainer,
+  )
+
+  await component.render()
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore:next-line
+  const node = containerRenderMock.calls[0][0] as unknown as HTMLElement
+  const priceHTML = node.querySelector('[class$="price"]')?.innerHTML || ''
+
+  expect(priceHTML).toContain('od')
+})
