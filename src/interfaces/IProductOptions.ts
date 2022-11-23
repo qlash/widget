@@ -10,6 +10,7 @@ export interface IProductOptions {
   description: boolean
   image: boolean
   price: boolean
+  titleTag: keyof HTMLElementTagNameMap
   ctaText?: string
   utmSource?: string
   utmMedium?: string

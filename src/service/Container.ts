@@ -9,6 +9,7 @@ export class Container implements IContainer {
     store: 'default',
     language: 'pl',
     description: true,
+    titleTag: 'header',
     image: true,
     price: true,
   }
@@ -52,6 +53,7 @@ export class Container implements IContainer {
       image: this.getBoolFromStr(dataset.image, this.options.image),
       description: this.getBoolFromStr(dataset.description, this.options.description),
       price: this.getBoolFromStr(dataset.price, this.options.price),
+      titleTag: (dataset.titleTag ?? this.options.titleTag) as keyof HTMLElementTagNameMap,
       ctaText: dataset.cta,
       utmSource: dataset.utmSource,
       utmCampaign: dataset.utmCampaign,

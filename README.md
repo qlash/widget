@@ -39,6 +39,7 @@ Dostepne opcje:
 |data-medicover|string|*wartość wymagana*|url-key produktu|
 |data-store|string|"default"(1)|wybrany storecode np. default/synevo|
 |data-language|pl/en|"pl"|język widgetu|
+|data-title-tag|string|header|ustawia tag dla nazwy produktu|
 |data-cta|string|"Kup teraz"|tekst, który pojawi się na przycisku CTA|
 |data-image|bool|true|pokaz/ukryj zdjęcie|
 |data-description|bool|true|pokaz/ukryj opis|

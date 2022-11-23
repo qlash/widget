@@ -24,12 +24,13 @@ it('should throw when url_key not set', () => {
 it('should set default options', () => {
   const container = new Container(element)
 
-  expect(container.getOptions()).toEqual({
+  expect(container.getOptions()).toContain({
     store: 'default',
     language: 'pl',
     image: true,
     description: true,
     price: true,
+    titleTag: 'header',
     ctaText: undefined,
     utmSource: undefined,
   })
@@ -61,5 +62,19 @@ it('should read options set on element', () => {
     description: false,
     price: false,
     ctaText: 'Kupuj u nas',
+    titleTag: 'header',
+  })
+})
+
+it('should set title tag', () => {
+  const customElement = document.createElement('div')
+
+  customElement.dataset.medicover = 'test'
+  customElement.dataset.titleTag = 'h2'
+
+  const container = new Container(customElement)
+
+  expect(container.getOptions()).toContain({
+    titleTag: 'h2',
   })
 })
