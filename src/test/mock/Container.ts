@@ -5,6 +5,7 @@ export class ContainerMock {
     store: 'default',
     language: 'pl',
     description: true,
+    titleTag: 'header',
     image: true,
     price: true,
   }

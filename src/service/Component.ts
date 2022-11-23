@@ -58,12 +58,13 @@ export class Component implements IComponent {
   }
 
   private createTitleElement(data: IProductData) {
+    const titleTag = this.container.getOptionByKey('titleTag')
     const element = this.createElementWithClass('div', 'main')
-    const h2 = this.createElementWithClass('h2', 'title')
+    const header = this.createElementWithClass(titleTag, 'title')
 
-    h2.innerText = data.name
+    header.innerText = data.name
 
-    element.appendChild(h2)
+    element.appendChild(header)
 
     const hasDescription = this.container.getOptionByKey('description')
 
@@ -80,7 +81,7 @@ export class Component implements IComponent {
 
   private createCTA(data: IProductData) {
     const language = this.container.getOptionByKey('language')
-    const element = this.createElementWithClass('aside', 'cta')
+    const element = this.createElementWithClass('footer', 'cta')
 
     const hasPrice = this.container.getOptionByKey('price')
 

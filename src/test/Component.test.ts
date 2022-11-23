@@ -115,3 +115,19 @@ it('should add "from" price if min and max price differ', async() => {
 
   expect(priceHTML).toContain('od')
 })
+
+it('should set title tag', async() => {
+  const component = new Component(
+    new ProductMock(),
+    new ContainerMock({ titleTag: 'h1' }) as unknown as IContainer,
+  )
+
+  await component.render()
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore:next-line
+  const node = containerRenderMock.calls[0][0] as unknown as HTMLElement
+  const title = node.querySelector('[class$="title"]')!
+
+  expect(title.nodeName).toBe('H1')
+})
