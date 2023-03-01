@@ -135,6 +135,6 @@ export class Component implements IComponent {
     const storeCodeName = this.container.getOptionByKey('store')
     const domain = StoreCode[storeCodeName]
 
-    return `${domain}${urlKey}/${query}`
+    return `${domain}${urlKey}${query}`
   }
 }

@@ -37,7 +37,7 @@ export class Container implements IContainer {
     return this.options[key]
   }
 
-  public setRenderStatus(status: string) {
+  public setRenderStatus(status: renderStatus) {
     this.element.dataset.rendered = status
   }
 

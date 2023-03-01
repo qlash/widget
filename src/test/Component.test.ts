@@ -73,7 +73,20 @@ it('should return correct url for store code', () => {
   expect(url).toContain('synevo.pl')
 })
 
-it('shoud add utm_source to url', async() => {
+it('shouldn`t add slash at the end of the url', () => {
+  const component = new Component(
+    new ProductMock(),
+    new ContainerMock({ store: 'synevo' }) as unknown as IContainer,
+  )
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore:next-line
+  const url = component.getProductUrl('test')
+
+  expect(url.endsWith('/')).toBeFalsy()
+})
+
+it('should add utm_source to url', async() => {
   const component = new Component(
     new ProductMock(),
     new ContainerMock({ utmSource: 'utm-test' }) as unknown as IContainer,
@@ -86,7 +99,7 @@ it('shoud add utm_source to url', async() => {
   expect(url).toContain('utm_source=utm-test')
 })
 
-it('shoud add utm_campaing and utm_medium to url', async() => {
+it('should add utm_campaing and utm_medium to url', async() => {
   const component = new Component(
     new ProductMock(),
     new ContainerMock({ utmCampaign: 'utm-kampania', utmMedium: 'utm-media' }) as unknown as IContainer,
