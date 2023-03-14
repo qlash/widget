@@ -1,9 +1,9 @@
 export enum StoreCode {
-  default = 'http://medistore.com.pl/p/',
-  medicover = 'http://sklep.medicover.pl/p/',
-  rehasport = 'http://sklep.rehasport.pl/p/',
-  damian = 'http://sklep.damian.pl/p/',
-  mindhealth = 'http://sklep.mindhealth.pl/p/',
-  vital = 'http://medicovervital.pl/p/',
-  synevo = 'http://store.synevo.pl/p/',
+  default = 'https://www.medistore.com.pl/p/',
+  medicover = 'https://sklep.medicover.pl/p/',
+  rehasport = 'https://sklep.rehasport.pl/p/',
+  damian = 'https://www.sklep.damian.pl/p/',
+  mindhealth = 'https://sklep.mindhealth.pl/p/',
+  vital = 'https://www.medicovervital.pl/p/',
+  synevo = 'https://www.store.synevo.pl/p/',
 }
