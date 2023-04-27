@@ -10,6 +10,7 @@ export class Container implements IContainer {
     language: 'pl',
     description: true,
     titleTag: 'header',
+    observe: false,
     image: true,
     price: true,
   }
@@ -30,6 +31,10 @@ export class Container implements IContainer {
     return medicover
   }
 
+  public getElement() {
+    return this.element
+  }
+
   public getOptions() {
     return this.options
   }
@@ -47,7 +52,7 @@ export class Container implements IContainer {
     this.setRenderStatus(renderStatus.DONE)
   }
 
-  private clearInnerHtml() {
+  public clearInnerHtml() {
     this.element.innerHTML = ''
   }
 
@@ -59,6 +64,7 @@ export class Container implements IContainer {
       description: this.getBoolFromStr(dataset.description, this.options.description),
       price: this.getBoolFromStr(dataset.price, this.options.price),
       titleTag: (dataset.titleTag ?? this.options.titleTag) as keyof HTMLElementTagNameMap,
+      observe: this.getBoolFromStr(dataset.observe, false),
       ctaText: dataset.cta,
       utmSource: dataset.utmSource,
       utmCampaign: dataset.utmCampaign,

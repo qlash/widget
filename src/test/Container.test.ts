@@ -61,6 +61,7 @@ it('should read options set on element', () => {
     image: false,
     description: false,
     price: false,
+    observe: false,
     ctaText: 'Kupuj u nas',
     titleTag: 'header',
   })

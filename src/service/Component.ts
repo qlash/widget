@@ -12,13 +12,32 @@ export class Component implements IComponent {
   public constructor(
     private product: IProduct,
     private container: IContainer,
-  ) {}
+  ) {
+    if (this.container.getOptionByKey('observe')) {
+      this.mutationObserver()
+    }
+  }
 
   public async render() {
     const data = await this.product.getData()
 
     if (data) {
       this.container.render(this.createContainer(data))
+    }
+  }
+
+  private mutationObserver() {
+    if (MutationObserver) {
+      const observer = new MutationObserver(() => {
+        const rendered = this.container.getElement().dataset.rendered
+
+        if (rendered !== 'done') {
+          this.container.clearInnerHtml()
+          this.render()
+        }
+      })
+
+      observer.observe(this.container.getElement(), { attributes: true })
     }
   }
 

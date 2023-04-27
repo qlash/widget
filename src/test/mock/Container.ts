@@ -13,6 +13,9 @@ export class ContainerMock {
   public constructor(options: Partial<IProductOptions> = {}) {
     this.options = { ...this.options, ...options }
   }
+  public getElement() {
+    return document.createElement('div')
+  }
   public getProductKey() {
     return 'test-key'
   }

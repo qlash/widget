@@ -30,7 +30,7 @@ it('should render all elements in widget', async() => {
 it('should not render elements in widget', async() => {
   const component = new Component(
     new ProductMock(),
-    new ContainerMock({ image: false, description: false, price: false }) as unknown as IContainer,
+    new ContainerMock({ image: false, description: false, price: false, observe: true }) as unknown as IContainer,
   )
 
   await component.render()

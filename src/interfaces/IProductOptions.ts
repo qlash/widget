@@ -11,6 +11,7 @@ export interface IProductOptions {
   image: boolean
   price: boolean
   titleTag: keyof HTMLElementTagNameMap
+  observe?: boolean;
   ctaText?: string
   utmSource?: string
   utmMedium?: string
