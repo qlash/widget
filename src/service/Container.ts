@@ -15,6 +15,7 @@ export class Container implements IContainer {
   }
 
   public constructor(private element: HTMLElement) {
+    this.clearInnerHtml()
     this.setRenderStatus(renderStatus.PENDING)
     this.setOptions(this.element.dataset)
   }
@@ -44,6 +45,10 @@ export class Container implements IContainer {
   public render(html: HTMLElement) {
     this.element.appendChild(html)
     this.setRenderStatus(renderStatus.DONE)
+  }
+
+  private clearInnerHtml() {
+    this.element.innerHTML = ''
   }
 
   private setOptions(dataset: DOMStringMap) {

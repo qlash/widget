@@ -78,3 +78,12 @@ it('should set title tag', () => {
     titleTag: 'h2',
   })
 })
+
+it('should clear inner HTML after call', () => {
+  const customElement = document.createElement('div')
+
+  customElement.innerHTML = '<div>Test</div>'
+
+  new Container(customElement)
+  expect(customElement.innerHTML).toBe('')
+})
