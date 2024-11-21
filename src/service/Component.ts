@@ -109,8 +109,6 @@ export class Component implements IComponent {
     const { price_range: { minimum_mediclub_price, minimum_price, maximum_price } } = data
     const isPriceRangeDiffer = minimum_price.value !== maximum_price.value
 
-    console.log(mediclubLogo)
-
     if (hasPrice) {
       const p = this.createElementWithClass('p', 'price')
 
