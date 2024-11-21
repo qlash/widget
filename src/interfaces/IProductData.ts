@@ -12,5 +12,6 @@ export interface IProductData {
   price_range: {
     maximum_price: IPrice
     minimum_price: IPrice
+    minimum_mediclub_price?: IPrice
   }
 }

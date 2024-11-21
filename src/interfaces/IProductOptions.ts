@@ -10,6 +10,7 @@ export interface IProductOptions {
   description: boolean
   image: boolean
   price: boolean
+  mediclubPrice: boolean
   titleTag: keyof HTMLElementTagNameMap
   observe?: boolean;
   ctaText?: string

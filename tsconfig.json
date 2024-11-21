@@ -14,5 +14,5 @@
     "typeRoots": ["node_modules/@types", "src/types"],
     "sourceMap": true,
   },
-  "include": ["src"]
+  "include": ["src", "globals.d.ts"]
 }

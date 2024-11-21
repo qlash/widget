@@ -8,6 +8,7 @@ export class ContainerMock {
     titleTag: 'header',
     image: true,
     price: true,
+    mediclubPrice: false,
   }
 
   public constructor(options: Partial<IProductOptions> = {}) {

@@ -5,6 +5,7 @@ import { IProduct } from '../interfaces/IProduct'
 import { IProductData } from '../interfaces/IProductData'
 import i18n from '../lang/i18n'
 import '../scss/style.scss'
+import * as mediclubLogo from '../assets/mediclub-logo.svg'
 
 export class Component implements IComponent {
   private cssClass = 'medicover-product-widget'
@@ -103,10 +104,15 @@ export class Component implements IComponent {
     const element = this.createElementWithClass('footer', 'cta')
 
     const hasPrice = this.container.getOptionByKey('price')
+    const hasMediclubPrice = this.container.getOptionByKey('mediclubPrice')
+
+    const { price_range: { minimum_mediclub_price, minimum_price, maximum_price } } = data
+    const isPriceRangeDiffer = minimum_price.value !== maximum_price.value
+
+    console.log(mediclubLogo)
 
     if (hasPrice) {
       const p = this.createElementWithClass('p', 'price')
-      const { price_range: { minimum_price, maximum_price } } = data
 
       const price = new Intl.NumberFormat(
         language, {
@@ -114,9 +120,22 @@ export class Component implements IComponent {
           currency: minimum_price.currency,
         }).format(minimum_price.value)
 
-      const priceRange = minimum_price.value !== maximum_price.value
+      p.innerHTML = `${isPriceRangeDiffer ? i18n[language].from : ''} ${price}`
 
-      p.innerHTML = `${priceRange ? i18n[language].from : ''} ${price}`
+      element.appendChild(p)
+    }
+
+    if (hasMediclubPrice && minimum_mediclub_price) {
+      const p = this.createElementWithClass('p', 'medi-price')
+
+      const mediPrice = new Intl.NumberFormat(
+        language, {
+          style: 'currency',
+          currency: minimum_mediclub_price.currency,
+        }).format(minimum_mediclub_price.value)
+
+      p.innerHTML = `<img src="${mediclubLogo.default}" alt="Mediclub" />`
+      p.innerHTML += ` ${isPriceRangeDiffer ? i18n[language].from : ''} ${mediPrice}`
 
       element.appendChild(p)
     }

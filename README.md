@@ -44,6 +44,7 @@ Dostepne opcje:
 |data-image|bool|true|pokaz/ukryj zdjęcie|
 |data-description|bool|true|pokaz/ukryj opis|
 |data-price|bool|true|pokaz/ukryj cenę|
+|data-mediclub-price|bool|false|pokaz/ukryj cenę mediclub|
 |data-observe|bool|false|odświeża (re-renderuje) widok przy zmianie atrybutu rendered (np. po hydracji ssr)
 |data-utm-source|string|*wartość opcjonalna*|dodaje do url query ?utm_source={{string}}
 |data-utm-medium|string|*wartość opcjonalna*|dodaje do url query ?utm_medium={{string}}

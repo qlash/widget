@@ -18,6 +18,10 @@ query products($filter: ProductAttributeFilterInput!) {
           currency
           value
         }
+        minimum_mediclub_price {
+          currency
+          value
+        }
       }
     }
   }
